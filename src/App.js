@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+import { Switch, Route, Link } from "wouter";
+import { css } from "emotion";
+import Lecture1 from "./Lecture1";
+import Lecture2 from "./Lecture2";
+import Lecture3 from "./Lecture3";
 
-function App() {
+export default function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Switch>
+      <Route path="/lecture-1/" component={Lecture1} />
+      <Route path="/lecture-2/" component={Lecture2} />
+      <Route path="/lecture-3/" component={Lecture3} />
+      <Route path="/:rest*">
+        <div
+          className={css`
+            text-align: center;
+          `}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <h1>Lectures</h1>
+          <div>
+            <Link to="/lecture-1/">Lecture 1</Link>
+          </div>
+          <div>
+            <Link to="/lecture-2/">Lecture 2</Link>
+          </div>
+          <div>
+            <Link to="/lecture-3/">Lecture 3</Link>
+          </div>
+        </div>
+      </Route>
+    </Switch>
   );
 }
-
-export default App;
