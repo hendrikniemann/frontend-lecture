@@ -19,13 +19,6 @@ export default function Lecture3(props) {
           management solution.
         </Text>
       </Slide>
-      <Slide bgColor="tertiary">
-        <Heading size="3">Component State</Heading>
-        <Text>
-          Most component frameworks come with a built-in per-component state
-          management solution.
-        </Text>
-      </Slide>
       <CodeSlide
         textSize="0.7em"
         lang="js"
@@ -46,11 +39,29 @@ export default function Lecture3(props) {
             note:
               "But by lifting the state we need to pass around a lot values."
           },
-          { loc: [45, 46], title: "Context to the rescue" },
-          { loc: [50, 66], note: "Expose state and actions via context" },
-          { loc: [67, 84], note: "Consume app state" }
+          { loc: [45, 49], title: "Context to the rescue" },
+          { loc: [50, 69], note: "Expose state and actions via context" },
+          { loc: [70, 87], note: "Consume app state" },
+          { loc: [88, 103], title: "Complex state with reducer" },
+          { loc: [105, 106], note: "useReducer insted of useState!" },
+          { loc: [106, 127], note: "Action abstractions" },
+          { loc: [128, 133], note: "Pass down state and actions." }
         ]}
       />
+      <Slide bgColor="tertiary">
+        <Heading size="3">Redux</Heading>
+        <Text>
+          Redux provides helper functions and patterns to do the "reducer in
+          context" at scale.
+        </Text>
+      </Slide>
+      <Slide bgColor="tertiary">
+        <Heading size="3">GraphQL clients</Heading>
+        <Text>
+          GraphQL clients help us with the reducer logic. Redux is (usually) not
+          needed anymore.
+        </Text>
+      </Slide>
     </Deck>
   );
 }

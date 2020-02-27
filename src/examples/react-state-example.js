@@ -50,6 +50,42 @@ export const AppState = React.createContext({
 
 export const useAppState = () => React.useContext(AppState);
 
+export function AppStateProvider(props) {
+  const [users, setUser] = React.useReducer(null);
+  const fetchUsers = force => {
+    if (users !== null && !force) {
+      return;
+    }
+    return fetch("/api/users")
+      .then(response => response.json())
+      .then(data => setUser(data));
+  };
+
+  return (
+    <AppState.Provider value={{ users, fetchUsers }}>
+      {props.children}
+    </AppState.Provider>
+  );
+}
+
+export function UserListFromContext(props) {
+  const { users, fetchUsers } = useAppState();
+  React.useEffect(() => fetchUsers(), [fetchUsers]);
+
+  if (users === null) {
+    return <div>Loading...</div>;
+  }
+  return (
+    <div>
+      {users.map(user => (
+        <div>
+          {user.name} - {user.birthDay}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function reducer(state, action) {
   switch (action.type) {
     case "SET_USERS":
@@ -66,7 +102,7 @@ function reducer(state, action) {
   }
 }
 
-export function AppStateProvider(props) {
+export function AppStateProviderWithReducer(props) {
   const [users, dispatch] = React.useReducer(reducer, null);
   const fetchUsers = force => {
     if (users !== null && !force) {
@@ -94,23 +130,5 @@ export function AppStateProvider(props) {
     <AppState.Provider value={{ users, fetchUsers, updateUser }}>
       {props.children}
     </AppState.Provider>
-  );
-}
-
-export function UserListFromContext(props) {
-  const { users, fetchUsers } = useAppState();
-  React.useEffect(() => fetchUsers(), [fetchUsers]);
-
-  if (users === null) {
-    return <div>Loading...</div>;
-  }
-  return (
-    <div>
-      {users.map(user => (
-        <div>
-          {user.name} - {user.birthDay}
-        </div>
-      ))}
-    </div>
   );
 }
