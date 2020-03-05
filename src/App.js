@@ -4,6 +4,7 @@ import { css } from "emotion";
 import Lecture1 from "./Lecture1";
 import Lecture2 from "./Lecture2";
 import Lecture3 from "./Lecture3";
+import Lecture4 from "./Lecture4";
 
 export default function App(props) {
   return (
@@ -11,6 +12,7 @@ export default function App(props) {
       <Route path="/lecture-1/" component={Lecture1} />
       <Route path="/lecture-2/" component={Lecture2} />
       <Route path="/lecture-3/" component={Lecture3} />
+      <Route path="/lecture-4/" component={Lecture4} />
       <Route path="/:rest*">
         <div
           className={css`
@@ -19,13 +21,20 @@ export default function App(props) {
         >
           <h1>Lectures</h1>
           <div>
-            <Link to="/lecture-1/">Lecture 1</Link>
+            <Link to="/lecture-1/">Lecture 1 - Introduction</Link>
           </div>
           <div>
-            <Link to="/lecture-2/">Lecture 2</Link>
+            <Link to="/lecture-2/">
+              Lecture 2 - API calls and Authentication
+            </Link>
           </div>
           <div>
-            <Link to="/lecture-3/">Lecture 3</Link>
+            <Link to="/lecture-3/">Lecture 3 - Global State Management</Link>
+          </div>
+          <div>
+            <Link to="/lecture-4/">
+              Lecture 4 - Styling and Conditional Rendering
+            </Link>
           </div>
         </div>
       </Route>
