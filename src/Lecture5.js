@@ -62,6 +62,34 @@ export default function Lecture5(props) {
         </Text>
         <ToolOfChoice link="https://www.cypress.io/">Cypress</ToolOfChoice>
       </Slide>
+      <Slide bgColor="tertiary">
+        <Heading size="4">Visual Testing</Heading>
+        <Text>
+          Visual testing is a specific form of E2E or integration testing, where
+          screenshots of different versions of your application are compared.
+          This way it is possible to find and detect unintended changes quickly.
+        </Text>
+        <ToolOfChoice link="https://happo.io/">Happo</ToolOfChoice>
+      </Slide>
+      <Slide bgColor="tertiary">
+        <Heading size="4">Static type system</Heading>
+        <Text>
+          A static type system checks if you pass around your data types
+          correctly at compile time.
+        </Text>
+        <ToolOfChoice link="https://www.typescriptlang.org/">
+          TypeScript
+        </ToolOfChoice>
+      </Slide>
+      <Slide bgColor="tertiary">
+        <Heading size="4">Code linting</Heading>
+        <Text>
+          Code linters look for common error patterns in your code and warn you
+          about potential errors. They also help you follow best practices and
+          complying with the code style of your team.
+        </Text>
+        <ToolOfChoice link="https://eslint.org/">ESLint</ToolOfChoice>
+      </Slide>
       <Slide bgColor="primary">
         <Heading textColor="tertiary" size="3">
           Chose the right tool for the job!
