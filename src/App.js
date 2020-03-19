@@ -5,6 +5,7 @@ import Lecture1 from "./Lecture1";
 import Lecture2 from "./Lecture2";
 import Lecture3 from "./Lecture3";
 import Lecture4 from "./Lecture4";
+import Lecture5 from "./Lecture5";
 
 export default function App(props) {
   return (
@@ -13,6 +14,7 @@ export default function App(props) {
       <Route path="/lecture-2/" component={Lecture2} />
       <Route path="/lecture-3/" component={Lecture3} />
       <Route path="/lecture-4/" component={Lecture4} />
+      <Route path="/lecture-5/" component={Lecture5} />
       <Route path="/:rest*">
         <div
           className={css`
@@ -34,6 +36,11 @@ export default function App(props) {
           <div>
             <Link to="/lecture-4/">
               Lecture 4 - Styling and Conditional Rendering
+            </Link>
+          </div>
+          <div>
+            <Link to="/lecture-5/">
+              Lecture 5 - Testing Frontend Applications
             </Link>
           </div>
         </div>

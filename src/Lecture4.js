@@ -13,7 +13,7 @@ import {
 import CodeLogo from "./CodeLogo";
 import theme from "./theme";
 
-export default function Lecture3(props) {
+export default function Lecture4(props) {
   return (
     <Deck theme={theme}>
       <Slide>
