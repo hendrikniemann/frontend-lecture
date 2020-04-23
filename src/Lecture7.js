@@ -4,7 +4,6 @@ import {
   Slide,
   Heading,
   Text,
-  Appear,
   Table,
   TableRow,
   TableItem

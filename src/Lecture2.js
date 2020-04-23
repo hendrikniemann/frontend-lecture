@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Deck, Slide, Heading, Quote, Text } from "spectacle";
-import CodeSlide from "spectacle-code-slide";
 import CodeLogo from "./CodeLogo";
 import theme from "./theme";
 
