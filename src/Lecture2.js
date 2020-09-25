@@ -8,7 +8,6 @@ import {
   Code,
   List,
   ListItem,
-  CodePane,
 } from "spectacle";
 import CodeLogo from "./CodeLogo";
 import theme from "./theme";

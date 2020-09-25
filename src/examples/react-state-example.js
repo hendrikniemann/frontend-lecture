@@ -4,8 +4,8 @@ export function UserList(props) {
   const [users, setUsers] = React.useState(null);
   React.useEffect(() => {
     fetch("/api/users")
-      .then(response => response.json())
-      .then(data => setUsers(data));
+      .then((response) => response.json())
+      .then((data) => setUsers(data));
   }, [setUsers]);
 
   if (users === null) {
@@ -13,7 +13,7 @@ export function UserList(props) {
   }
   return (
     <div>
-      {users.map(user => (
+      {users.map((user) => (
         <div>
           {user.name} - {user.birthDay}
         </div>
@@ -31,8 +31,8 @@ export function UserPanel(props) {
   const [users, setUsers] = React.useState(null);
   React.useEffect(() => {
     fetch("/api/users")
-      .then(response => response.json())
-      .then(data => setUsers(data));
+      .then((response) => response.json())
+      .then((data) => setUsers(data));
   }, [setUsers]);
 
   return (
@@ -45,20 +45,20 @@ export function UserPanel(props) {
 
 export const AppState = React.createContext({
   users: [],
-  fetchUsers: () => null
+  fetchUsers: () => null,
 });
 
 export const useAppState = () => React.useContext(AppState);
 
 export function AppStateProvider(props) {
-  const [users, setUser] = React.useReducer(null);
-  const fetchUsers = force => {
+  const [users, setUser] = React.useState(null);
+  const fetchUsers = (force) => {
     if (users !== null && !force) {
       return;
     }
     return fetch("/api/users")
-      .then(response => response.json())
-      .then(data => setUser(data));
+      .then((response) => response.json())
+      .then((data) => setUser(data));
   };
 
   return (
@@ -77,7 +77,7 @@ export function UserListFromContext(props) {
   }
   return (
     <div>
-      {users.map(user => (
+      {users.map((user) => (
         <div>
           {user.name} - {user.birthDay}
         </div>
@@ -91,7 +91,7 @@ function reducer(state, action) {
     case "SET_USERS":
       return action.payload.users;
     case "UPDATE_USER":
-      return state.map(user => {
+      return state.map((user) => {
         if (user.id === action.payload.user.id) {
           return action.payload.user;
         }
@@ -104,22 +104,24 @@ function reducer(state, action) {
 
 export function AppStateProviderWithReducer(props) {
   const [users, dispatch] = React.useReducer(reducer, null);
-  const fetchUsers = force => {
+  const fetchUsers = (force) => {
     if (users !== null && !force) {
       return;
     }
     return fetch("/api/users")
-      .then(response => response.json())
-      .then(data => dispatch({ type: "SET_USERS", payload: { users: data } }));
+      .then((response) => response.json())
+      .then((data) =>
+        dispatch({ type: "SET_USERS", payload: { users: data } })
+      );
   };
-  const updateUser = user => {
+  const updateUser = (user) => {
     fetch("/api/users/" + user.id, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(user)
+      body: JSON.stringify(user),
     })
-      .then(response => response.json())
-      .then(json => {
+      .then((response) => response.json())
+      .then((json) => {
         if (json.success) {
           dispatch({ type: "UPDATE_USER", user });
         }

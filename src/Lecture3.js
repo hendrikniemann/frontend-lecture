@@ -13,10 +13,17 @@ export default function Lecture3(props) {
         <CodeLogo />
       </Slide>
       <Slide bgColor="tertiary">
-        <Heading size="3">Component State</Heading>
+        <Heading size="3">Local State</Heading>
         <Text>
           Most component frameworks come with a built-in per-component state
           management solution.
+        </Text>
+      </Slide>
+      <Slide bgColor="tertiary">
+        <Heading size="3">Global State</Heading>
+        <Text>
+          In an app, having a local state can be helpful to apply data changes
+          to all components that depend on this state.
         </Text>
       </Slide>
       <CodeSlide
@@ -31,21 +38,21 @@ export default function Lecture3(props) {
           { loc: [10, 22], note: "Render conditionally" },
           {
             loc: [24, 28],
-            note: "What if the state is used by multiple components?"
+            note: "What if the state is used by multiple components?",
           },
           { loc: [29, 44], title: "Lift the state!" },
           {
             loc: [29, 44],
             note:
-              "But by lifting the state we need to pass around a lot values."
+              "But by lifting the state we need to pass around a lot values.",
           },
           { loc: [45, 49], title: "Context to the rescue" },
           { loc: [50, 69], note: "Expose state and actions via context" },
           { loc: [70, 87], note: "Consume app state" },
           { loc: [88, 103], title: "Complex state with reducer" },
           { loc: [105, 106], note: "useReducer insted of useState!" },
-          { loc: [106, 127], note: "Action abstractions" },
-          { loc: [128, 133], note: "Pass down state and actions." }
+          { loc: [106, 129], note: "Action abstractions" },
+          { loc: [131, 135], note: "Pass down state and actions." },
         ]}
       />
       <Slide bgColor="tertiary">
@@ -56,10 +63,17 @@ export default function Lecture3(props) {
         </Text>
       </Slide>
       <Slide bgColor="tertiary">
+        <Heading size="3">Vuex</Heading>
+        <Text>
+          Vuex is a middleware for Vue.js, that works very similar to Redux.
+        </Text>
+      </Slide>
+      <Slide bgColor="tertiary">
         <Heading size="3">GraphQL clients</Heading>
         <Text>
           GraphQL clients help us with the reducer logic. Redux is (usually) not
-          needed anymore.
+          needed anymore. A global cache can track changes in entities and
+          update queries across the app.
         </Text>
       </Slide>
     </Deck>
