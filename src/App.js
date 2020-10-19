@@ -6,6 +6,7 @@ import Lecture2 from "./Lecture2";
 import Lecture3 from "./Lecture3";
 import Lecture4 from "./Lecture4";
 import Lecture5 from "./Lecture5";
+import Lecture6 from "./Lecture6";
 import Lecture7 from "./Lecture7";
 import Lecture8 from "./Lecture8";
 
@@ -17,6 +18,7 @@ export default function App(props) {
       <Route path="/lecture-3/" component={Lecture3} />
       <Route path="/lecture-4/" component={Lecture4} />
       <Route path="/lecture-5/" component={Lecture5} />
+      <Route path="/lecture-6/" component={Lecture6} />
       <Route path="/lecture-7/" component={Lecture7} />
       <Route path="/lecture-8/" component={Lecture8} />
       <Route path="/:rest*">
@@ -46,6 +48,9 @@ export default function App(props) {
             <Link to="/lecture-5/">
               Lecture 5 - Testing Frontend Applications
             </Link>
+          </div>
+          <div>
+            <Link to="/lecture-6/">Lecture 6 - Web Security</Link>
           </div>
           <div>
             <Link to="/lecture-7/">
